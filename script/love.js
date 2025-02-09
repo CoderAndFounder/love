@@ -81,11 +81,19 @@ function init() {
   var heartPointsCount = pointsOrigin.length;
   var targetPoints = [];
 
+  var mouseX = width / 2;
+  var mouseY = height / 2;
+
+  window.addEventListener("mousemove", function (event) {
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+  });
+
   function pulse(kx, ky) {
     for (var i = 0; i < pointsOrigin.length; i++) {
       targetPoints[i] = [
-        kx * pointsOrigin[i][0] + width / 2,
-        ky * pointsOrigin[i][1] + height / 2.2,
+        kx * pointsOrigin[i][0] + mouseX,
+        ky * pointsOrigin[i][1] + mouseY,
       ];
     }
   }
